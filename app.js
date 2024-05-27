@@ -349,8 +349,14 @@ app.use('/uploads', express.static('uploads'));
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
 
-const JWT_SECRET = "bkhdbdkchd()Teg2n#fbeheuugfwbhjbvvhbk";
-const mongoUrl = "mongodb+srv://anushkam254:TjLFXNtclHKd4LbS@cluster0.uwac3kx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+// const JWT_SECRET = "bkhdbdkchd()Teg2n#fbeheuugfwbhjbvvhbk";
+// const mongoUrl = "mongodb+srv://anushkam254:TjLFXNtclHKd4LbS@cluster0.uwac3kx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
+
+const PORT = process.env.PORT || 5000;
+const JWT_SECRET = process.env.JWT_SECRET;
+const mongoUrl = process.env.MONGODB_CONNECT_URI;
+
 
 mongoose.connect(mongoUrl, { useNewUrlParser: true })
   .then(() => {
